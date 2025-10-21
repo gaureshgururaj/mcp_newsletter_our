@@ -1,0 +1,9 @@
+﻿crewai>=0.30.11
+crewai_tools>=0.1.6
+langchain_openai
+python-dotenv
+tavily-python
+streamlit
+langchain-tavily
+pysbd
+elevenlabs-mcp

@@ -1,0 +1,73 @@
+search_task_1:
+  description: >
+    Conduct a general web search for information on {topic}.
+  expected_output: >
+    A list of URLs and raw text from the general web search.
+
+search_task_2:
+  description: >
+    Perform a targeted search on high-authority sources like academic journals
+    and reputable news outlets for information on {topic}.
+  expected_output: >
+    A list of URLs and raw text from high-authority sources.
+
+search_task_3:
+  description: >
+    Scan social media platforms and forums for public opinion and emerging
+    narratives on {topic}.
+  expected_output: >
+    A list of URLs and raw text from social media and forums.
+
+validation_task:
+  description: >
+    Review the list of findings from the research agent. For each finding,
+    validate the information by checking the source URL for factual accuracy
+    and reliability.
+  expected_output: >
+    A list of validated findings. Each finding **must be a dictionary**
+    containing the original 'summary', 'url', 'title', and a new
+    'confidence_score' (from 1-10) with a 'justification'. **The summary
+    must be a direct and accurate representation of the information at the
+    source URL.**
+
+analysis_task:
+  description: >
+    Analyze the list of validated findings. Identify key themes and synthesize
+    the information into a coherent narrative.
+  expected_output: >
+    A detailed analysis report. The report must contain:
+    - 'summary_of_findings': A coherent narrative synthesizing the key points.
+      **Every claim in the summary must be traceable to a specific source.**
+    - 'key_themes': A list of the main themes discovered.
+    - 'sentiment_analysis': A summary of the overall sentiment.
+    - 'sources': The original list of validated source dictionaries, including title and URL.
+
+content_generation_task:
+  description: >
+    Using the analysis report, generate a well-structured, coherent, and engaging
+    news article on {topic}.
+  expected_output: >
+    A final, publication-ready news article in markdown format. The article
+    must include a compelling headline, an introduction, body paragraphs, a
+    conclusion, and a '## Sources' section at the end. This section must list
+    the title of each source as a clickable markdown link pointing to its URL
+    (e.g., `* [Example Title](http://example.com)`).
+
+senior_editor_task:
+  description: >
+    Perform a final review of the generated article. Check for factual accuracy,
+    grammatical errors, stylistic consistency, and adherence to editorial guidelines.
+    Ensure all citations are correct and that the article is ready for publication.
+  expected_output: >
+    A polished, publish-ready news article. The article must conclude with a
+    "## Sources" section, followed by a markdown bulleted list of all source URLs.
+
+research_task:
+  description: >
+    Find the most relevant and up-to-date information on {topic} within the
+    specified time period of {time_period}.
+  expected_output: >
+    A list of 5 key findings. Each finding should be a dictionary containing:
+    - 'summary': A concise summary of the finding.
+    - 'url': The source URL.
+    - 'title': The title of the source.

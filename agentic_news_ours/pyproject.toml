@@ -1,0 +1,36 @@
+[project]
+name = "agentic_news"
+version = "0.1.0"
+description = "agentic_news using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai>=0.35.7",
+    "langchain-community>=0.2.0",
+    "crewai[tools]>=0.35.7",
+    "python-dotenv>=1.0.1",
+    "langchain-openai>=0.1.8",
+    "fastapi>=0.111.0",
+    "uvicorn>=0.29.0",
+    "python-multipart>=0.0.9",
+    "streamlit>=1.35.0",
+    "langchain-tavily>=0.1.6",
+    "tavily-python>=0.3.3",
+]
+
+[project.scripts]
+agentic_news = "agentic_news.main:run"
+run_crew = "agentic_news.main:run"
+train = "agentic_news.main:train"
+replay = "agentic_news.main:replay"
+test = "agentic_news.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
+
+[tool.uv.sources]
+agentic_news = { path = "src/agentic_news", editable = true }
